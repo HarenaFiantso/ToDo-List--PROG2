@@ -2,7 +2,7 @@
 * Cette classe permet de créer un petite interface dans la console pour permettre d'éxecuter l'application
 * */
 
-package src;
+package classes;
 
 public class Menu {
     public static void printMenu() {
