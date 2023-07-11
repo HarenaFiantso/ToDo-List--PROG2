@@ -3,7 +3,7 @@
 * console.
 * */
 
-package src;
+package classes;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -12,7 +12,8 @@ public class CRUD {
     public static void createTableIfNotExists(Connection connection) throws SQLException {
         /*==========CREATE THE TABLE todos IF IT IS NOT EXISTED==========*/
         Statement statement = connection.createStatement();
-        String createTableQuery = "CREATE TABLE IF NOT EXISTS todos (id SERIAL PRIMARY KEY, title VARCHAR(255), description VARCHAR(255))";
+        String createTableQuery = "CREATE TABLE IF NOT EXISTS todos (id SERIAL PRIMARY KEY, title VARCHAR(255), " +
+                "description VARCHAR(255))";
         statement.executeUpdate(createTableQuery);
         statement.close();
     }
@@ -33,7 +34,7 @@ public class CRUD {
         statement.executeUpdate();
         statement.close();
 
-        System.out.println("The Todo that you created is added successfully");
+        System.out.println("The Todo that you created is added successfully ! ");
     }
 
     public static void findTodoItem(Scanner scanner, Connection connection) throws SQLException {
@@ -48,7 +49,7 @@ public class CRUD {
         ResultSet resultSet = statement.executeQuery();
 
         /*
-        * Essaie de donner à l'utilisateur les informations nécessaires du Todo à chercher
+        * J'essaie de donner à l'utilisateur les informations nécessaires du Todo à chercher
         * */
         while (resultSet.next()) {
             int id = resultSet.getInt("id");
@@ -71,7 +72,7 @@ public class CRUD {
         ResultSet resultSet = statement.executeQuery(selectQuery);
 
         /*
-         * Essaie de donner à l'utilisateur les informations nécessaires du Todo à afficher
+         * J'essaie de donner à l'utilisateur les informations nécessaires du Todo à afficher
          * */
         while (resultSet.next()) {
             int id = resultSet.getInt("id");
@@ -91,7 +92,7 @@ public class CRUD {
         /*==========PROMPT THE USER TO ENTER THE ID OF THE Todo TO UPDATE==========*/
         System.out.print("Please enter the identifier of the Todo to update : ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // CONSOMME LE CARACTERE DE SAUT DE LIGNE
+        scanner.nextLine();
 
         /*==========UPDATE THE Todo WITH THE FOLLOWING PROMPT==========*/
         /*==========NEW TITLE==========*/
