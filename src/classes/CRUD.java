@@ -9,13 +9,20 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class CRUD {
+    public static void createTableIfNotExists(Connection connection) throws SQLException {
+        /*==========CREATE THE TABLE todos IF IT IS NOT EXISTED==========*/
+        Statement statement = connection.createStatement();
+        String createTableQuery = "CREATE TABLE IF NOT EXISTS todos (id SERIAL PRIMARY KEY, title VARCHAR(255), description VARCHAR(255))";
+        statement.executeUpdate(createTableQuery);
+        statement.close();
+    }
     public static void addTodoItem(Scanner scanner, Connection connection) throws SQLException {
-        /*==========TITLE OF THE Todo TO ADD ==========*/
-        System.out.println("Please enter the title of the TODO to add for : ");
+        /*==========TITLE OF THE Todo TO ADD==========*/
+        System.out.print("Please enter the title of the TODO to add for : ");
         String title = scanner.nextLine();
 
         /*==========DESCRIPTION OF THE Todo TO ADD==========*/
-        System.out.println("Please enter the description of the TODO to add for : ");
+        System.out.print("Please enter the description of the TODO to add for : ");
         String description = scanner.nextLine();
 
         /*==========INSERT QUERY OF THE addTodoItem==========*/
@@ -31,7 +38,7 @@ public class CRUD {
 
     public static void findTodoItem(Scanner scanner, Connection connection) throws SQLException {
         /*==========TITLE OF THE Todo TO FIND==========*/
-        System.out.println("Please the title of the Todo to search for : ");
+        System.out.print("Please the title of the Todo to search for : ");
         String title = scanner.nextLine();
 
         /*==========SELECT QUERY OF THE Todo TO FIND==========*/
@@ -82,17 +89,17 @@ public class CRUD {
 
     public static void updateTodoItem(Scanner scanner, Connection connection) throws SQLException {
         /*==========PROMPT THE USER TO ENTER THE ID OF THE Todo TO UPDATE==========*/
-        System.out.println("Please enter the identifier of the Todo to update : ");
+        System.out.print("Please enter the identifier of the Todo to update : ");
         int id = scanner.nextInt();
         scanner.nextLine(); // CONSOMME LE CARACTERE DE SAUT DE LIGNE
 
         /*==========UPDATE THE Todo WITH THE FOLLOWING PROMPT==========*/
         /*==========NEW TITLE==========*/
-        System.out.println("Please enter the new title of the Todo : ");
+        System.out.print("Please enter the new title of the Todo : ");
         String newTitle = scanner.nextLine();
 
         /*==========NEW DESCRIPTION==========*/
-        System.out.println("Please enter the new description of the Todo : ");
+        System.out.print("Please enter the new description of the Todo : ");
         String newDescription = scanner.nextLine();
 
         /*==========UPDATE QUERY OF THE Todo TO UPDATE==========*/
@@ -109,7 +116,7 @@ public class CRUD {
 
     public static void deleteTodoItem(Scanner scanner, Connection connection) throws SQLException {
         /*==========PROMPT THE USER TO ENTER THE ID OF THE Todo TO DELETE==========*/
-        System.out.println("Please enter the identifier of the Todo to delete : ");
+        System.out.print("Please enter the identifier of the Todo to delete : ");
         int id = scanner.nextInt();
 
         /*==========DELETE QUERY OF THE Todo TO SHOW==========*/
