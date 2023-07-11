@@ -1,6 +1,6 @@
 /*
 * Cette classe est la classe principale qui permettra d'exécuter l'application
-* ENJOYYYYY! Fiantso Harena ! 
+* ENJOYYYYY! Fiantso Harena !
 * */
 
 package main;
