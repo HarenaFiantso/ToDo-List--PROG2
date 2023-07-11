@@ -1,6 +1,6 @@
 /*
 * Cette classe Java permet d'exécuter les requêtes SQL selon le choix de l'Utilisateur dans le menu d'interface dans la
-* console
+* console.
 * */
 
 package src;
@@ -57,7 +57,7 @@ public class CRUD {
         statement.close();
     }
 
-    private static void showAllTodoItem(Connection connection) throws SQLException {
+    public static void showAllTodoItem(Connection connection) throws SQLException {
         /*==========SELECT QUERY OF THE Todo TO SHOW==========*/
         String selectQuery = "SELECT * FROM todos";
         Statement statement = connection.createStatement();
@@ -107,7 +107,7 @@ public class CRUD {
         System.out.println("Todo is updated successfully ! ");
     }
 
-    private static void deleteTodoItem(Scanner scanner, Connection connection) throws SQLException {
+    public static void deleteTodoItem(Scanner scanner, Connection connection) throws SQLException {
         /*==========PROMPT THE USER TO ENTER THE ID OF THE Todo TO DELETE==========*/
         System.out.println("Please enter the identifier of the Todo to delete : ");
         int id = scanner.nextInt();
