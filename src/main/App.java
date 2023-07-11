@@ -1,9 +1,9 @@
 /*
 * Cette classe est la classe principale qui permettra d'exécuter l'application
-* ENJOYYYYY! Fiantso Harena
+* ENJOYYYYY! Fiantso Harena ! 
 * */
 
-package src;
+package main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,7 +28,7 @@ public class App {
            do {
                printMenu();
                userMenuChoice = scanner.nextInt();
-               scanner.nextLine(); // CONSOMME LE CARACTERE DE SAUT DE LIGNE
+               scanner.nextLine();
 
                switch (userMenuChoice) {
                    case 1 -> addTodoItem(scanner, connection);
